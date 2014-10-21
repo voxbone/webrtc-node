@@ -1,15 +1,15 @@
 Voxbone WebRTC Node.js SDK
 
-1. Install the dependencies
+#####1. Install the dependencies
 
 ```
     npm install
 ```
-    
-   Start the application
+
+#####2. Start the application
 
 ```
     npm start
 ```    
 
-   Access it via http://localhost.com/3000
+#####3. Access it via http://localhost.com/3000
