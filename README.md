@@ -7,10 +7,17 @@ Voxbone WebRTC Node.js SDK
     npm install
 ```
 
-#####2. Start the application
+#####2. Change your credentials in config.js
+
+```
+    default_username: 'your_username',
+    default_secret: 'your_webrtc_secret_key'
+```
+
+#####3. Start the application
 
 ```
     npm start
 ```    
 
-#####3. Access it via [http://localhost:3000](http://localhost:3000)
+#####4. Access it via [http://localhost:3000](http://localhost:3000)
