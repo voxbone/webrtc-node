@@ -13,4 +13,4 @@ Voxbone WebRTC Node.js SDK
     npm start
 ```    
 
-#####3. Access it via http://localhost:3000
+#####3. Access it via [http://localhost:3000](http://localhost:3000)
