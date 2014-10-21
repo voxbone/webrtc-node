@@ -6,10 +6,10 @@ Voxbone WebRTC Node.js SDK
     npm install
 ```
     
-2. Start the application
+   Start the application
 
 ```
     npm start
 ```    
 
-3. Access it via http://localhost.com/3000
+   Access it via http://localhost.com/3000
