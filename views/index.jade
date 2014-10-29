@@ -10,7 +10,7 @@ head
         script(type='text/javascript').
               var eventHandlers = {
                   'progress':   function(e){ document.getElementById("status_message").innerHTML="Calling " + document.getElementById('number').value;},
-                  'failed':     function(e){ document.getElementById("status_message").innerHTML="Failed to Connect";},
+                  'failed':     function(e){ document.getElementById("status_message").innerHTML="Failed to Connect: " + e.data.cause;},
                   'started':    function(e){ document.getElementById("status_message").innerHTML="<b><font color='green'>In Call</font></b>"; },
                   'ended':      function(e){ document.getElementById("status_message").innerHTML="<b><font color='red'>Call Ended</font></b>"; }
               };
