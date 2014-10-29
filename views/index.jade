@@ -48,19 +48,20 @@ head
       //
          invoke init() method when page is initializing
       body(onload='init();')
-        form
-          //
-             input text which holds the number to dial
-          input#number(type='text')
-          //
-             place a call using voxbone webrtc js lib
-          button(type='button', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);') Dial
-          //
-             hangup the current call in progress
-          button(type='button', onclick='voxbone.WebRTC.hangup();') Hangup
-          //
-             toggle mute ON/OFF
-          button#mute(type='button', onclick='toggleMute()') Mute
-          br
-          #status_message
-            p Initializing configuration
+        .container
+            form
+              //
+                 input text which holds the number to dial
+              input#number(type='tel' placeholder="Enter an E164")
+              //
+                 place a call using voxbone webrtc js lib
+              button(type='button', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);') Dial
+              //
+                 hangup the current call in progress
+              button(type='button', onclick='voxbone.WebRTC.hangup();') Hangup
+              //
+                 toggle mute ON/OFF
+              button#mute(type='button', onclick='toggleMute()') Mute
+              br
+              #status_message
+                p Initializing configuration
