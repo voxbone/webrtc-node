@@ -37,10 +37,10 @@ head
                   var button = document.getElementById("mute");
                   if( voxbone.WebRTC.isMuted ){
                       voxbone.WebRTC.unmute();
-                      button.value = "mute";
+                      button.innerHTML = "Mute";
                   }else{
                       voxbone.WebRTC.mute();
-                      button.value = "unmute";
+                      button.innerHTML = "Unmute";
                   }
               }
     block content
@@ -54,13 +54,13 @@ head
           input#number(type='text')
           //
              place a call using voxbone webrtc js lib
-          input(type='button', value='dial', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);')
+          button(type='button', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);') Dial
           //
              hangup the current call in progress
-          input(type='button', value='hangup', onclick='voxbone.WebRTC.hangup();')
+          button(type='button', onclick='voxbone.WebRTC.hangup();') Hangup
           //
              toggle mute ON/OFF
-          input#mute(type='button', value='mute', onclick='toggleMute()')
+          button#mute(type='button', onclick='toggleMute()') Mute
           br
           #status_message
             p Initializing configuration
