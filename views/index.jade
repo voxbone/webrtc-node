@@ -1,7 +1,9 @@
 html
 head
     title
-
+    
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js")
+    
     block script
         script(src='https://webrtc.voxbone.com/js/voxbone-0.0.2.js', type='text/javascript')
         script(src='https://webrtc.voxbone.com/js/jssip-0.3.0.js', type='text/javascript')
@@ -46,21 +48,25 @@ head
 
       //
          invoke init() method when page is initializing
-      body(onload='init();')
-        .container
+      body(onload='init();' style='text-align: center;')
+        h1 Click2Call Demo
+        .container(style="width:200px; margin-top:10%;")
             form
               //
                  input text which holds the number to dial
-              input#number(type='tel' placeholder="Enter an E164")
+              input#number.btn-block.form-control.input-lg(type='tel' placeholder="Enter an E164" style="text-align:center")
               //
                  place a call using voxbone webrtc js lib
-              button(type='button', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);') Dial
+              button.btn.btn-success.btn-lg.btn-block(type='button', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);') Dial
+                 span.glyphicon.glyphicon-earphone.pull-left
               //
                  hangup the current call in progress
-              button(type='button', onclick='voxbone.WebRTC.hangup();') Hangup
+              button.btn.btn-danger.btn-lg.btn-block(type='button', onclick='voxbone.WebRTC.hangup();') Hangup
+                span.glyphicon.glyphicon-remove.pull-left
               //
                  toggle mute ON/OFF
               button#mute(type='button', onclick='toggleMute()') Mute
+                .btn.btn-link.btn-block,
               br
               #status_message
                 p Initializing configuration
