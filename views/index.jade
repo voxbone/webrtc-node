@@ -41,28 +41,28 @@ html
                       }
                   }
                   
-        block content
-        
-          //
-             invoke init() method when page is initializing
-          body(onload='init();' style='text-align: center;')
-            h1 Click2Call Demo
-            .container(style="width:200px; margin-top:10%;")
-                form
-                  //
-                     input text which holds the number to dial
-                  input#number.btn-block.form-control.input-lg(type='tel' placeholder="Enter an E164" style="text-align:center")
-                  //
-                     place a call using voxbone webrtc js lib
-                  button.btn.btn-success.btn-lg.btn-block(type='button', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);') Dial
-                     span.glyphicon.glyphicon-earphone.pull-left
-                  //
-                     hangup the current call in progress
-                  button.btn.btn-danger.btn-lg.btn-block(type='button', onclick='voxbone.WebRTC.hangup();') Hangup
-                    span.glyphicon.glyphicon-remove.pull-left
-                  //
-                     toggle mute ON/OFF
-                  button#mute.btn.btn-link.btn-block(type='button', onclick='toggleMute()') Mute
-                  br
-                  #status_message
-                    p Initializing configuration
+    block content
+    
+      //
+         invoke init() method when page is initializing
+      body(onload='init();' style='text-align: center;')
+        h1 Click2Call Demo
+        .container(style="width:200px; margin-top:10%;")
+            form
+              //
+                 input text which holds the number to dial
+              input#number.btn-block.form-control.input-lg(type='tel' placeholder="Enter an E164" style="text-align:center")
+              //
+                 place a call using voxbone webrtc js lib
+              button.btn.btn-success.btn-lg.btn-block(type='button', onclick='voxbone.WebRTC.call(document.getElementById(\'number\').value);') Dial
+                 span.glyphicon.glyphicon-earphone.pull-left
+              //
+                 hangup the current call in progress
+              button.btn.btn-danger.btn-lg.btn-block(type='button', onclick='voxbone.WebRTC.hangup();') Hangup
+                span.glyphicon.glyphicon-remove.pull-left
+              //
+                 toggle mute ON/OFF
+              button#mute.btn.btn-link.btn-block(type='button', onclick='toggleMute()') Mute
+              br
+              #status_message
+                p Initializing configuration
