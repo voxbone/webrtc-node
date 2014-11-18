@@ -7,7 +7,7 @@ Voxbone WebRTC Node.js SDK
     npm install
 ```
 
-#####2. Change your credentials in config.js
+#####2. Change your credentials in routes/configuration.js
 
 ```
     default_username: 'your_username',
