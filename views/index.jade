@@ -26,6 +26,10 @@ html
                       //Note that It must be a valid sip uri.
                       //Default value is: voxrtc@voxbone.com
                       //voxbone.WebRTC.configuration.uri = "caller-id@voxbone.com";
+                      //Add a display name
+                      //voxbone.WebRTC.configuration.display_name = "";
+                      //Add an object or string in the X-Voxbone-Context SIP header
+                      //voxbone.WebRTC.context = "Here's a context string";
                       //Bootstrap Voxbone WebRTC javascript object
                       voxbone.WebRTC.init(#{voxrtc_config});
                   }
