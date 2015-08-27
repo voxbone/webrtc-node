@@ -12,7 +12,7 @@
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3",
     "debug": "~2.0.0",
-    "jade": "~1.6.0",
-    "crypto": "~0.0.3"
+    "crypto": "~0.0.3",
+    "voxbone-webrtc": "0.0.8"
   }
 }

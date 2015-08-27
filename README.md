@@ -1,4 +1,4 @@
-Voxbone WebRTC Node.js SDK
+Voxbone WebRTC Node.js Standalone App
 =========================
 
 #####1. Install the dependencies
@@ -7,11 +7,12 @@ Voxbone WebRTC Node.js SDK
     npm install
 ```
 
-#####2. Change your credentials in routes/configuration.js
+#####2. Change your credentials in routes/index.js
 
 ```
-    default_username: 'your_username',
-    default_secret: 'your_webrtc_secret_key'
+    var voxrtc_username= 'your_voxbone_webrtc_username';
+	var voxrtc_secret = 'your_voxbone_webrtc_secret';
+
 ```
 
 #####3. Start the application
