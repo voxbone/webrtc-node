@@ -3,8 +3,8 @@ var router = express.Router();
 var Voxbone = require('voxbone-webrtc');
 
 //Your Voxbone WebRTC credentials
-var voxrtc_username = 'your_voxbone_webrtc_username';
-var voxrtc_secret = 'your_voxbone_webrtc_secret';
+var voxrtc_username = '';
+var voxrtc_secret = '';
 
 //New Voxbone Object
 var voxbone = new Voxbone({
