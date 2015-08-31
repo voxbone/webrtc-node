@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var Voxbone = require('voxbone-webrtc');
 
 //Your Voxbone WebRTC credentials
-var voxrtc_username = '';
-var voxrtc_secret = '';
+var voxrtc_username = 'your_voxbone_webrtc_username';
+var voxrtc_secret = 'your_voxbone_webrtc_secret';
 
 //New Voxbone Object used for authentication
 var voxbone = new Voxbone({
