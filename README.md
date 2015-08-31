@@ -7,7 +7,7 @@ Voxbone WebRTC Node.js Standalone App
     npm install
 ```
 
-#####2. Change your credentials in routes/index.js
+#####2. Change your credentials in app.js
 
 ```
     var voxrtc_username= 'your_voxbone_webrtc_username';
