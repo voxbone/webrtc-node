@@ -4,7 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var routes = require('./routes/index');
+var Voxbone = require('voxbone-webrtc');
+
+//Your Voxbone WebRTC credentials
+var voxrtc_username = '';
+var voxrtc_secret = '';
+
+//New Voxbone Object used for authentication
+var voxbone = new Voxbone({
+    voxrtcUsername: voxrtc_username,
+    voxrtcSecret: voxrtc_secret
+});
 
 var app = express();
 
@@ -19,7 +29,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+// Launch  index view and pass the voxrtc_config key.
+app.get('/', function(req, res) {
+    voxrtc_config = voxbone.generate();
+    res.render('index');
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
