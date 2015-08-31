@@ -24,13 +24,16 @@ Voxbone WebRTC Node.js Standalone App
 #####4. Access it via [http://localhost:3000](http://localhost:3000)
 
 #####5. Structure
-/bin
---------- www 	     (this is where you can set the port for running the app, default is 3000)
-/views
---------- index.jade (this is the front-end of the app, where all the webRTC logic lies and where you can configure your call settings, eg: caller-ID, context-header, display_name, etc..)
 
-README.md 		(this exact file)
-
-app.js 			(this is the application logic itself: where you add your credentials for the hashing mechanism and pass the generated key to your front-end to authenticate your browser.)
-
-package.json 		(all the required dependencies for this app to work, including voxbone-webrtc-npm which takes care of the hashing mechanism and auth key generation)
+```
+project
+│   README.md      (this exact file)
+│   package.json   (all the required app dependencies, including voxbone-webrtc-npm for auth key generation)
+|   app.js     	   (App logic: uses credentials for hashing mechanism and pass generated key to front-end for browser auth.)
+│
+└───/bin
+|   │   www 	   (this is where you can set the port for running the app, default is 3000)
+|
+└───/views
+    │   index.jade (App front-end, contains webRTC logic and where call settings/config, eg: caller-ID, context-header, etc..)
+```
