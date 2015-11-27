@@ -77,16 +77,16 @@ html
       }
       /** Optional part, only use to play with mute **/
       function toggleMute(){
-      var button = document.getElementById("mute");
-      if( voxbone.WebRTC.isMuted ){
-      voxbone.WebRTC.unmute();
-      $("#mute").text("Mute");
-      $("#mute_icon").removeClass("glyphicon-volume-off").addClass("glyphicon-volume-up");
-      }else{
-      voxbone.WebRTC.mute();
-      $("#mute").text("Unmute");
-      $("#mute_icon").removeClass("glyphicon-volume-up").addClass("glyphicon-volume-off");
-      }
+        var button = document.getElementById("mute");
+        if( voxbone.WebRTC.isMuted ){
+          voxbone.WebRTC.unmute();
+          $("#mute").text("Mute");
+          $("#mute_icon").removeClass("glyphicon-volume-off").addClass("glyphicon-volume-up");
+        }else{
+          voxbone.WebRTC.mute();
+          $("#mute").text("Unmute");
+          $("#mute_icon").removeClass("glyphicon-volume-up").addClass("glyphicon-volume-off");
+        }
       }
   //
     invoke init() method when page is initializing
