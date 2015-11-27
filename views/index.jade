@@ -22,7 +22,12 @@ html
       //Default is to use the ping mechanism to determine the preferedPop.
       //voxbone.WebRTC.preferedPop = 'BE';
       // set custom event handlers
-      voxbone.WebRTC.customEventHandler = eventHandlers;
+      voxbone.WebRTC.customEventHandler.progress = eventHandlers.progress;
+      voxbone.WebRTC.customEventHandler.failed = eventHandlers.failed;
+      voxbone.WebRTC.customEventHandler.accepted = eventHandlers.accepted;
+      voxbone.WebRTC.customEventHandler.ended = eventHandlers.ended;
+      voxbone.WebRTC.customEventHandler.getUserMediaFailed = eventHandlers.getUserMediaFailed;
+      voxbone.WebRTC.customEventHandler.localMediaVolume = eventHandlers.localMediaVolume;
       //Set the caller-id, domain name gets automatically stripped off
       //Note that It must be a valid sip uri.
       //Default value is: voxrtc@voxbone.com
@@ -47,7 +52,7 @@ html
       }
   //
     invoke init() method when page is initializing
-  body(onload='init();', style='text-align: center;')
+  body(onload='init();', onbeforeunload='voxbone.WebRTC.unloadHandler();' style='text-align: center;')
     h1 Click2Call Demo
     .container(style='width:200px; margin-top:10%;')
       form
