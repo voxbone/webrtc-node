@@ -59,6 +59,14 @@ html
       **/
       //voxbone.WebRTC.configuration.digit_gap = 1400;
 
+      /**
+        * This configuration option if enabled allows voxbone webrtc sdk to push
+        * all the call logs to a voxbone defined backend, where they can be used
+        * for troubleshooting. By default, this option is disabled.
+        * Set this option to true to allow voxbone to collect call logs
+      **/
+      //voxbone.WebRTC.configuration.post_logs = true;
+
 
       //Bootstrap Voxbone WebRTC javascript object
       voxbone.WebRTC.init(#{voxrtc_config});
