@@ -38,21 +38,27 @@ html
       //voxbone.WebRTC.context = "Here's a context string";
 
       /**
-      * dialer_string
-      * Digits to dial after call is established
-      * dialer string is comma separated, to define a specific pause between digits,
-      * we add another entry like 1,2,3,1200ms,4,.. this will add a 1200ms of pause between
-      * digits 3 & 4.
-      * Example = '1,2,3,1200ms,4,5,900ms,6,#'
+        * dialer_string
+        * Digits to dial after call is established
+        * dialer string is comma separated, to define a specific pause between digits,
+        * we add another entry like 1,2,3,1200ms,4,.. this will add a 1200ms of pause between
+        * digits 3 & 4.
+        * Example = '1,2,3,1200ms,4,5,900ms,6,#'
       **/
       //voxbone.WebRTC.configuration.dialer_string = "1,2,3,1200ms,4,5,900ms,6,#";
 
       /**
-      * digit duration (in milliseconds)
-      * It defines the duration of digits sent by the web application.
-      * By default, default digit duration is 100 ms.
+        * digit duration (in milliseconds)
+        * It defines the duration of digits sent by the web application.
+        * By default, default digit duration is 100 ms.
       **/
       //voxbone.WebRTC.configuration.digit_duration = 1000;
+
+      /**
+        * gap can be set between all digits in milliseconds
+      **/
+      //voxbone.WebRTC.configuration.digit_gap = 1400;
+
 
       //Bootstrap Voxbone WebRTC javascript object
       voxbone.WebRTC.init(#{voxrtc_config});
