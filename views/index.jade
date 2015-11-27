@@ -47,6 +47,13 @@ html
       **/
       //voxbone.WebRTC.configuration.dialer_string = "1,2,3,1200ms,4,5,900ms,6,#";
 
+      /**
+      * digit duration can also be set for all dmtf digits sent (in milliseconds)
+      * It defines the duration of digits sent by the web application.
+      * By default, default digit duration is 100 ms.
+      **/
+      //voxbone.WebRTC.configuration.digit_duration = 1000;
+
       //Bootstrap Voxbone WebRTC javascript object
       voxbone.WebRTC.init(#{voxrtc_config});
 
