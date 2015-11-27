@@ -44,10 +44,12 @@ html
       var button = document.getElementById("mute");
       if( voxbone.WebRTC.isMuted ){
       voxbone.WebRTC.unmute();
-      button.innerHTML = "Mute";
+      $("#mute").text("Mute");
+      $("#mute_icon").removeClass("glyphicon-volume-off").addClass("glyphicon-volume-up");
       }else{
       voxbone.WebRTC.mute();
-      button.innerHTML = "Unmute";
+      $("#mute").text("Unmute");
+      $("#mute_icon").removeClass("glyphicon-volume-up").addClass("glyphicon-volume-off");
       }
       }
   //
@@ -72,8 +74,9 @@ html
         //
           toggle mute ON/OFF
         button.btn.btn-info.btn-lg.btn-block(type='button', onclick='toggleMute()')
-          | Mute
-          span.glyphicon.glyphicon-volume-up.pull-left#mute
+          span.glyphicon.glyphicon-volume-up.pull-left#mute_icon
+          span#mute Mute
+          
         br
         div
             | Local Volume  
