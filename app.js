@@ -29,6 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Launch  index view and pass the voxrtc_config key.
 app.get('/', function(req, res) {
     voxrtc_config = voxbone.generate();
+    username = voxrtc_username;
+    password = voxrtc_secret;
     res.render('index');
 });
 
