@@ -69,10 +69,10 @@ html
 
 
       //Bootstrap Voxbone WebRTC javascript object
-      voxbone.WebRTC.init(#{voxrtc_config});
+      //voxbone.WebRTC.init(#{voxrtc_config});
 
       //Basic Authentication can also be used instead of using the token in voxbone.WebRTC.init()
-      //voxbone.WebRTC.basicAuthInit(your_username, your_secret_key)
+      voxbone.WebRTC.basicAuthInit(#{username}, #{password})
 
       }
       /** Optional part, only use to play with mute **/
