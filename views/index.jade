@@ -6,14 +6,6 @@ html
     script(src='https://webrtc.voxbone.com/js/voxbone-latest.js', type='text/javascript')
     script(src='http://code.jquery.com/jquery-latest.min.js', type='text/javascript')
     script(type='text/javascript').
-      var eventHandlers = {
-      'progress':   function(e){ document.getElementById("status_message").innerHTML="Calling " + document.getElementById('number').value;},
-      'getUserMediaFailed':     function(e){ document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to access mic: " + e.data.cause + "</font></b>"},
-      'failed':     function(e){ document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to connect: " + e.data.cause + "</font></b>"},
-      'accepted':    function(e){ document.getElementById("status_message").innerHTML="<b><font color='green'>In Call</font></b>"; },
-      'localMediaVolume': function(e) { document.getElementById('volume').value = e.localVolume; },
-      'ended':      function(e){ document.getElementById("status_message").innerHTML="<b><font color='red'>Call Ended</font></b>"; }
-      };
       /** This part is required as it handle Voxbone WebRTC initialization **/
       function init(){
       // Set the webrtc auth server url (url below it the default one)
@@ -22,12 +14,24 @@ html
       //Default is to use the ping mechanism to determine the preferedPop.
       //voxbone.WebRTC.preferedPop = 'BE';
       // set custom event handlers
-      voxbone.WebRTC.customEventHandler.progress = eventHandlers.progress;
-      voxbone.WebRTC.customEventHandler.failed = eventHandlers.failed;
-      voxbone.WebRTC.customEventHandler.accepted = eventHandlers.accepted;
-      voxbone.WebRTC.customEventHandler.ended = eventHandlers.ended;
-      voxbone.WebRTC.customEventHandler.getUserMediaFailed = eventHandlers.getUserMediaFailed;
-      voxbone.WebRTC.customEventHandler.localMediaVolume = eventHandlers.localMediaVolume;
+      voxbone.WebRTC.customEventHandler.progress = function(e) {
+				document.getElementById("status_message").innerHTML="Calling " + document.getElementById('number').value;
+			};
+		  voxbone.WebRTC.customEventHandler.getUserMediaFailed = function(e) {
+			  document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to access mic: " + e.data.cause + "</font></b>";
+		  };
+	  	voxbone.WebRTC.customEventHandler.failed = function(e) {
+			  document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to connect: " + e.data.cause + "</font></b>";
+		  };
+	    voxbone.WebRTC.customEventHandler.accepted = function(e) {
+		  	document.getElementById("status_message").innerHTML="<b><font color='green'>In Call</font></b>";
+		  };
+	    voxbone.WebRTC.customEventHandler.ended = function(e) {
+			  document.getElementById("status_message").innerHTML="<b><font color='red'>Call Ended</font></b>";
+		  };
+	  	voxbone.WebRTC.customEventHandler.authExpired = function(e) { 
+			  voxbone.WebRTC.basicAuthInit(#{username}, #{password});
+		  };
       //Set the caller-id, domain name gets automatically stripped off
       //Note that It must be a valid sip uri.
       //Default value is: voxrtc@voxbone.com
