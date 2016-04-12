@@ -2,98 +2,101 @@ html
   head
     title
     link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css', rel='stylesheet')
-    script(src='https://webrtc.voxbone.com/js/jssip-latest.js', type='text/javascript')
-    script(src='https://webrtc.voxbone.com/js/voxbone-latest.js', type='text/javascript')
-    script(src='http://code.jquery.com/jquery-latest.min.js', type='text/javascript')
-    script(type='text/javascript').
-      /** This part is required as it handle Voxbone WebRTC initialization **/
-      function init(){
-      // Set the webrtc auth server url (url below it the default one)
-      voxbone.WebRTC.authServerURL = "https://webrtc.voxbone.com/rest/authentication/createToken";
-      //If this is not set, a ping to each pop will be issued to determine which is the most optimal for the user
-      //Default is to use the ping mechanism to determine the preferedPop.
-      //voxbone.WebRTC.preferedPop = 'BE';
-      // set custom event handlers
-      voxbone.WebRTC.customEventHandler.progress = function(e) {
-				document.getElementById("status_message").innerHTML="Calling " + document.getElementById('number').value;
-			};
-		  voxbone.WebRTC.customEventHandler.getUserMediaFailed = function(e) {
-			  document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to access mic: " + e.data.cause + "</font></b>";
-		  };
-	  	voxbone.WebRTC.customEventHandler.failed = function(e) {
-			  document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to connect: " + e.data.cause + "</font></b>";
-		  };
-	    voxbone.WebRTC.customEventHandler.accepted = function(e) {
-		  	document.getElementById("status_message").innerHTML="<b><font color='green'>In Call</font></b>";
-		  };
-	    voxbone.WebRTC.customEventHandler.ended = function(e) {
-			  document.getElementById("status_message").innerHTML="<b><font color='red'>Call Ended</font></b>";
-		  };
-	  	voxbone.WebRTC.customEventHandler.authExpired = function(e) { 
-			  voxbone.WebRTC.basicAuthInit(#{username}, #{password});
-		  };
-      //Set the caller-id, domain name gets automatically stripped off
-      //Note that It must be a valid sip uri.
-      //Default value is: voxrtc@voxbone.com
-      //voxbone.WebRTC.configuration.uri = "caller-id@voxbone.com";
-      //Add a display name
-      //voxbone.WebRTC.configuration.display_name = "";
-      //Add an object or string in the X-Voxbone-Context SIP header
-      //voxbone.WebRTC.context = "Here's a context string";
 
-      /**
-        * dialer_string
-        * Digits to dial after call is established
-        * dialer string is comma separated, to define a specific pause between digits,
-        * we add another entry like 1,2,3,1200ms,4,.. this will add a 1200ms of pause between
-        * digits 3 & 4.
-        * Example = '1,2,3,1200ms,4,5,900ms,6,#'
-      **/
-      //voxbone.WebRTC.configuration.dialer_string = "1,2,3,1200ms,4,5,900ms,6,#";
+    block script
 
-      /**
-        * digit duration (in milliseconds)
-        * It defines the duration of digits sent by the web application.
-        * By default, default digit duration is 100 ms.
-      **/
-      //voxbone.WebRTC.configuration.digit_duration = 1000;
+      script(src='https://webrtc.voxbone.com/js/jssip-latest.js', type='text/javascript')
+      script(src='https://webrtc.voxbone.com/js/voxbone-latest.js', type='text/javascript')
+      script(src='http://code.jquery.com/jquery-latest.min.js', type='text/javascript')
+      script(type='text/javascript').
+        /** This part is required as it handle Voxbone WebRTC initialization **/
+        function init(){
 
-      /**
-        * gap can be set between all digits in milliseconds
-      **/
-      //voxbone.WebRTC.configuration.digit_gap = 1400;
+          // Set the webrtc auth server url (url below it the default one)
+          voxbone.WebRTC.authServerURL = "https://webrtc.voxbone.com/rest/authentication/createToken";
+          //If this is not set, a ping to each pop will be issued to determine which is the most optimal for the user
+          //Default is to use the ping mechanism to determine the preferedPop.
+          //voxbone.WebRTC.preferedPop = 'BE';
+          // set custom event handlers
+          voxbone.WebRTC.customEventHandler.progress = function(e) {
+            document.getElementById("status_message").innerHTML="Calling " + document.getElementById('number').value;
+          };
+          voxbone.WebRTC.customEventHandler.getUserMediaFailed = function(e) {
+            document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to access mic: " + e.data.cause + "</font></b>";
+          };
+          voxbone.WebRTC.customEventHandler.failed = function(e) {
+            document.getElementById("status_message").innerHTML="<b><font color='red'>Failed to connect: " + e.data.cause + "</font></b>";
+          };
+          voxbone.WebRTC.customEventHandler.accepted = function(e) {
+            document.getElementById("status_message").innerHTML="<b><font color='green'>In Call</font></b>";
+          };
+          voxbone.WebRTC.customEventHandler.ended = function(e) {
+            document.getElementById("status_message").innerHTML="<b><font color='red'>Call Ended</font></b>";
+          };
+          voxbone.WebRTC.customEventHandler.authExpired = function(e) {
+            voxbone.WebRTC.basicAuthInit(#{username}, #{password});
+          };
+          //Set the caller-id, domain name gets automatically stripped off
+          //Note that It must be a valid sip uri.
+          //Default value is: voxrtc@voxbone.com
+          //voxbone.WebRTC.configuration.uri = "caller-id@voxbone.com";
+          //Add a display name
+          //voxbone.WebRTC.configuration.display_name = "";
+          //Add an object or string in the X-Voxbone-Context SIP header
+          //voxbone.WebRTC.context = "Here's a context string";
 
-      /**
-        * This configuration option if enabled allows voxbone webrtc sdk to push
-        * all the call logs to a voxbone defined backend, where they can be used
-        * for troubleshooting. By default, this option is disabled.
-        * Set this option to true to allow voxbone to collect call logs
-      **/
-      //voxbone.WebRTC.configuration.post_logs = true;
+          /**
+            * dialer_string
+            * Digits to dial after call is established
+            * dialer string is comma separated, to define a specific pause between digits,
+            * we add another entry like 1,2,3,1200ms,4,.. this will add a 1200ms of pause between
+            * digits 3 & 4.
+            * Example = '1,2,3,1200ms,4,5,900ms,6,#'
+          **/
+          //voxbone.WebRTC.configuration.dialer_string = "1,2,3,1200ms,4,5,900ms,6,#";
+
+          /**
+            * digit duration (in milliseconds)
+            * It defines the duration of digits sent by the web application.
+            * By default, default digit duration is 100 ms.
+          **/
+          //voxbone.WebRTC.configuration.digit_duration = 1000;
+
+          /**
+            * gap can be set between all digits in milliseconds
+          **/
+          //voxbone.WebRTC.configuration.digit_gap = 1400;
+
+          /**
+            * This configuration option if enabled allows voxbone webrtc sdk to push
+            * all the call logs to a voxbone defined backend, where they can be used
+            * for troubleshooting. By default, this option is disabled.
+            * Set this option to true to allow voxbone to collect call logs
+          **/
+          //voxbone.WebRTC.configuration.post_logs = true;
 
 
-      //Bootstrap Voxbone WebRTC javascript object
-      //voxbone.WebRTC.init(#{voxrtc_config});
+          //Bootstrap Voxbone WebRTC javascript object
+          //voxbone.WebRTC.init(#{voxrtc_config});
 
-      //Basic Authentication can also be used instead of using the token in voxbone.WebRTC.init()
-      voxbone.WebRTC.basicAuthInit(#{username}, #{password})
+          //Basic Authentication can also be used instead of using the token in voxbone.WebRTC.init()
+          voxbone.WebRTC.basicAuthInit(#{username}, #{password});
+        };
 
-      }
-      /** Optional part, only use to play with mute **/
-      function toggleMute(){
-        var button = document.getElementById("mute");
-        if( voxbone.WebRTC.isMuted ){
-          voxbone.WebRTC.unmute();
-          $("#mute").text("Mute");
-          $("#mute_icon").removeClass("glyphicon-volume-off").addClass("glyphicon-volume-up");
-        }else{
-          voxbone.WebRTC.mute();
-          $("#mute").text("Unmute");
-          $("#mute_icon").removeClass("glyphicon-volume-up").addClass("glyphicon-volume-off");
+        /** Optional part, only use to play with mute **/
+        function toggleMute(){
+          var button = document.getElementById("mute");
+          if( voxbone.WebRTC.isMuted ){
+            voxbone.WebRTC.unmute();
+            $("#mute").text("Mute");
+            $("#mute_icon").removeClass("glyphicon-volume-off").addClass("glyphicon-volume-up");
+          }else{
+            voxbone.WebRTC.mute();
+            $("#mute").text("Unmute");
+            $("#mute_icon").removeClass("glyphicon-volume-up").addClass("glyphicon-volume-off");
+          }
         }
-      }
-  //
-    invoke init() method when page is initializing
+  //invoke init() method when page is initializing
   body(onload='init();', onbeforeunload='voxbone.WebRTC.unloadHandler();' style='text-align: center;')
     h1 Click2Call Demo
     .container(style='width:200px; margin-top:10%;')
