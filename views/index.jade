@@ -34,7 +34,7 @@ html
             document.getElementById("status_message").innerHTML="<b><font color='red'>Call Ended</font></b>";
           };
           voxbone.WebRTC.customEventHandler.authExpired = function(e) {
-            voxbone.WebRTC.basicAuthInit(#{username}, #{password});
+            voxbone.WebRTC.basicAuthInit('#{username}', '#{password}');
           };
           //Set the caller-id, domain name gets automatically stripped off
           //Note that It must be a valid sip uri.
@@ -80,7 +80,7 @@ html
           //voxbone.WebRTC.init(#{voxrtc_config});
 
           //Basic Authentication can also be used instead of using the token in voxbone.WebRTC.init()
-          voxbone.WebRTC.basicAuthInit(#{username}, #{password});
+          voxbone.WebRTC.basicAuthInit('#{username}', '#{password}');
         };
 
         /** Optional part, only use to play with mute **/
